@@ -28,6 +28,13 @@ Route::controller(ProductController::class)->group( function()  {
 
 })->middleware(['auth', 'verified']);
 
+Route::controller(CategoryController::class)->group( function()  {
+
+    Route::get('/categorias','index')->name('category.index');
+    Route::get('/nova-categoria','create')->name('category.create');
+
+})->middleware(['auth', 'verified']);
+
 Route::middleware('auth')->group(function () {
     Route::get('/perfil', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
