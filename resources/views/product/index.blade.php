@@ -25,7 +25,7 @@
                             @foreach ($products as $product)
                                 <tr class="hover:bg-indigo-50">
                                     <td class="px-4 py-2">
-                                        #
+                                        -
                                     </td>
                                     <td class="px-4 py-2">{{$product->name}}</td>
                                     <td class="px-4 py-2">R$ {{$product->price}}</td>
@@ -59,16 +59,13 @@
                                                     </h2>
                                                     <table class="w-1/3 text-sm m-auto">
                                                         <tr>
-                                                            <td>Nome:</td>
-                                                            <td>{{$product->name}}</td>
+                                                            <td class="text-center">{{$product->name}}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Preço:</td>
-                                                            <td>R${{$product->price}}</td>
+                                                            <td class="text-center">R${{$product->price}}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Categoria:</td>
-                                                            <td>{{$product->category->name}}</td>
+                                                            <td class="text-center">{{$product->category->name}}</td>
                                                         </tr>
                                                     </table>
                                                     <div class="mt-6 flex justify-center">
