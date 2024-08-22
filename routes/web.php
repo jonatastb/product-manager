@@ -22,16 +22,23 @@ Route::controller(ProductController::class)->group( function()  {
     Route::get('/produto/{id}', 'edit')->name('product.edit');
     
     // Back-end
-    Route::post('product/', 'store')->name('product.store');
-    Route::put('product/{id}', 'update')->name('product.update');
+    Route::post('/product', 'store')->name('product.store');
+    Route::put('/product/{id}', 'update')->name('product.update');
     Route::delete('/product/{id}', 'destroy')->name('product.destroy');
 
 })->middleware(['auth', 'verified']);
 
 Route::controller(CategoryController::class)->group( function()  {
 
+    // Front-end
     Route::get('/categorias','index')->name('category.index');
     Route::get('/nova-categoria','create')->name('category.create');
+    Route::get('/categoria/{id}','edit')->name('category.edit');
+    
+    // Back-end
+    Route::post('/category', 'store')->name('category.store');
+    Route::put('/category/{id}', 'update')->name('category.update');
+    Route::delete('/category/{id}', 'destroy')->name('category.destroy');
 
 })->middleware(['auth', 'verified']);
 
