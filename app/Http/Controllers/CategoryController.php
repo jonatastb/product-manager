@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProductController1 extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('category.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class ProductController1 extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
