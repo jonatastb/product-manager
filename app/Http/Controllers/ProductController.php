@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CadastroProdutoRequest;
 use App\Http\Requests\EdicaoProdutoRequest;
+use App\Http\Resources\ProductResource;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -11,10 +12,15 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    public function index() {
+    public function index() 
+    {
 
         $products = Product::where('user_id', Auth::id())->get();
         return view('product.index', compact('products'));
+    }
+    public function apiIndex() 
+    {
+        return ProductResource::collection(Product::all());
     }
 
     public function create()
@@ -23,7 +29,8 @@ class ProductController extends Controller
         return view('product.create', compact('categories'));
     }
 
-    public function store(CadastroProdutoRequest $request) {
+    public function store(CadastroProdutoRequest $request) 
+    {
 
         Product::create([
             "name" => $request->name,
@@ -35,7 +42,8 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('success', 'Produto criado com sucesso!');
     }
 
-    public function edit(int $id) {
+    public function edit(int $id) 
+    {
         $categories = Category::all();
         $product = Product::findOrFail($id);
 
@@ -46,7 +54,9 @@ class ProductController extends Controller
         return view('product.index');
 
     }
-    public function update(EdicaoProdutoRequest $request, int $id) {
+
+    public function update(EdicaoProdutoRequest $request, int $id) 
+    {
 
         $product = Product::findOrFail($id);
         if($product->user_id === Auth::id()){   
@@ -61,7 +71,9 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('error', 'O produto não foi editado!');
 
     }
-    public function destroy(int $id) {
+
+    public function destroy(int $id) 
+    {
 
         $product = Product::findOrFail($id);
         if($product->user_id === Auth::id()){   
