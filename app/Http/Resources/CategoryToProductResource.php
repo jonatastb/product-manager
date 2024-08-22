@@ -5,24 +5,21 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class CategoryToProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
      *
      * @return array<string, mixed>
      */
-    
+
     public static $wrap = null;
-    
+
     public function toArray(Request $request): array
     {
         return [
-            "usuario" => [
-                "id" => $this->id,
-                "nome" => $this->name,
-                "produtos" => ProductsToUserResource::collection($this->products),
-            ]
+            "id" => $this->id,
+            "nome" => $this->name,
         ];
     }
 }
