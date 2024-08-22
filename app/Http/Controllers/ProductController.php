@@ -14,13 +14,13 @@ class ProductController extends Controller
     public function index() {
 
         $products = Product::where('user_id', Auth::id())->get();
-        return view('my-products', compact('products'));
+        return view('product.index', compact('products'));
     }
 
     public function create()
     {
         $categories = Category::all();
-        return view('new-product', compact('categories'));
+        return view('product.create', compact('categories'));
     }
 
     public function store(CadastroProdutoRequest $request) {
@@ -40,10 +40,10 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         if($product->user_id === Auth::id()){
-            return view('edit-product', compact('product','categories'));
+            return view('product.edit', compact('product','categories'));
         }
 
-        return view('my-products');
+        return view('product.index');
 
     }
     public function update(EdicaoProdutoRequest $request, int $id) {
