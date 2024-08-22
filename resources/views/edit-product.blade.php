@@ -20,7 +20,7 @@
                             <div class="flex flex-row items-center">
                                 <x-input-label for="price" :value="__('Preço')" class=" focus:ring-indigo-500 mr-1"/>
                                 <x-input-label for="price" :value="__('Ex: 000.00')" class=" focus:ring-indigo-500 text-xs text-gray-200"/>
-                            </div>
+                            </div>asdas
                             <div class="flex items-center">
                                 <span class="shadow-none absolute mt-1 text-gray-500"  style="left: -24px">R$</span>
                                 <div class="flex flex-col">

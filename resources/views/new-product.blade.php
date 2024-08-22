@@ -29,7 +29,7 @@
                         <div  class="w-1/2 ml-4">
                             <x-input-label for="category_id" :value="__('Categorias')" class=" focus:ring-indigo-500"/>
                             <select name="category_id" id="category_id" class="mt-1 border-gray-300 w-full focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
-                                <option selected hidden>Escolha uma categoria</option>
+                                <option selected hidden>Selecione uma</option>
                                 @foreach ($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
