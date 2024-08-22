@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CadastroProdutoRequest;
 use App\Http\Requests\EdicaoProdutoRequest;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\UserResource;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,6 +23,10 @@ class ProductController extends Controller
     public function apiIndex() 
     {
         return ProductResource::collection(Product::all());
+    }
+    public function getByUser(int $id) 
+    {
+        return new UserResource(User::where('id', $id)->first());
     }
 
     public function create()
