@@ -4,6 +4,13 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Navigation Links -->
+                @if (Auth::user()->is_admin)
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('product.allIndexAdmin')" :active="request()->routeIs('product.allIndexAdmin')">
+                            {{ __('Todos os produtos') }}
+                        </x-nav-link>
+                    </div>
+                @endif
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
                         {{ __('Meus produtos') }}
@@ -19,11 +26,20 @@
                         {{ __('Categorias') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('category.create')" :active="request()->routeIs('category.create')">
-                        {{ __('Nova Categoria') }}
-                    </x-nav-link>
-                </div>
+                @if (Auth::user()->is_admin)
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('category.create')" :active="request()->routeIs('category.create')">
+                            {{ __('Nova Categoria') }}
+                        </x-nav-link>
+                    </div>
+                @endif
+                @if (Auth::user()->is_admin)
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('product.usersIndexProductsAdmin')" :active="request()->routeIs('product.usersIndexProductsAdmin')">
+                            {{ __('Usuários') }}
+                        </x-nav-link>
+                    </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->
@@ -74,6 +90,13 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+        @if (Auth::user()->is_admin)
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('product.allIndexAdmin')" :active="request()->routeIs('product.allIndexAdmin')">
+                    {{ __('Todos os produtos') }}
+                </x-responsive-nav-link>
+            </div>
+        @endif
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
                 {{ __('Meus Produtos') }}
@@ -84,7 +107,18 @@
                 {{ __('Novo produto') }}
             </x-responsive-nav-link>
         </div>
-
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
+                {{ __('Categorias') }}
+            </x-responsive-nav-link>
+        </div>
+        @if (Auth::user()->is_admin)
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('category.create')" :active="request()->routeIs('category.create')">
+                    {{ __('Nova Categoria') }}
+                </x-responsive-nav-link>
+            </div>
+        @endif
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">

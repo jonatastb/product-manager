@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if (Auth::check()) {
-        return redirect()->route('product.index');
+        if(Auth::user()->is_admin){
+            return redirect()->route('product.allIndexAdmin');
+        }else{
+            return redirect()->route('product.index');
+        }
     } else {
         return redirect()->route('login');
     }
@@ -25,6 +29,11 @@ Route::controller(ProductController::class)->group( function()  {
     Route::post('/product', 'store')->name('product.store');
     Route::put('/product/{id}', 'update')->name('product.update');
     Route::delete('/product/{id}', 'destroy')->name('product.destroy');
+
+    //Admin
+    Route::get('/todos-os-produtos', 'allIndexAdmin')->name('product.allIndexAdmin');
+    Route::get('/usuarios', 'usersIndexProductsAdmin')->name('product.usersIndexProductsAdmin');
+    Route::get('/usuario/{id}', 'usersProduct')->name('product.usersProduct');
 
 })->middleware(['auth', 'verified']);
 

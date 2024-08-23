@@ -16,13 +16,15 @@
                             <td class="px-4 py-2">Produto</td>
                             <td class="px-4 py-2">Preço</td>
                             <td class="px-4 py-2">Categoria</td>
+                            <td class="px-4 py-2">Criado por</td>
+                            <td class="px-4 py-2">Criado em</td>
                             <td class="px-4 py-2 text-center">Ações</td>
                         </tr>
                     </thead>
                     <tbody>
                         @if (count($products) === 0)
                             <tr class="text-center">
-                                <td colspan="5" class="px-4 py-2 text-gray-400">
+                                <td colspan="7" class="px-4 py-2 text-gray-400">
                                     Nenhum produto encontrado!
                                 </td>
                             </tr>
@@ -35,6 +37,8 @@
                                     <td class="px-4 py-2">{{$product->name}}</td>
                                     <td class="px-4 py-2">R$ {{$product->price}}</td>
                                     <td class="px-4 py-2">{{$product->category->name}}</td>
+                                    <td class="px-4 py-2">{{$product->user->name}}</td>
+                                    <td class="px-4 py-2">{{date_format($product->created_at,"d/m/Y")}}</td>
                                     <td class="px-4 py-2">
                                         <div class="flex flex-row justify-center">
                                             <a href="{{route('product.edit', $product->id)}}" class="text-blue-500 m-1">

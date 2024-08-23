@@ -1,6 +1,11 @@
 <x-app-layout>
-    <div class="py-12">
+    <div class="py-12 mx-2">
         <div class="lg:max-w-2xl max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if (session('success'))
+                <div class="bg-green-800 text-white px-4 py-2 rounded mb-4">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="bg-white lg:overflow-hidden shadow-sm sm:rounded-lg">
                 <table class="table-auto min-w-full">
                     <thead>
@@ -71,6 +76,7 @@
                     </tbody>
                 </table>
             </div>
+            {{ $categories->links() }}
         </div>
     </div>
 </x-app-layout>
