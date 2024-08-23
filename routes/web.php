@@ -12,7 +12,7 @@ Route::get('/', function () {
     } else {
         return redirect()->route('login');
     }
-});
+})->name('void');
 
 Route::controller(ProductController::class)->group( function()  {
 
