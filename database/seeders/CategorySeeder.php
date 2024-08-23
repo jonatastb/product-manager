@@ -11,8 +11,11 @@ class CategorySeeder extends Seeder
     /**
      * Run the database seeds.
      */
+    protected $fake_category_names = ['Bebidas', 'Alimentos', 'Higiene', 'Vestuário', 'Brinquedos'];
     public function run(): void
     {
-        Category::factory(10)->create();
+        foreach ($this->fake_category_names as $name) {
+            Category::factory()->create(["name" => $name]);
+        }
     }
 }
