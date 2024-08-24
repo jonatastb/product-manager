@@ -8,7 +8,9 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="csrf-token" content="{{ csrf_token() }}">
 
-            <title>{{ config('app.name', 'Laravel') }}</title>
+            <title>Gestor de Produtos</title>
+
+            <link rel="shortcut icon" type="imagex/png" href="icon.png">
 
             <!-- Fonts -->
             <link rel="preconnect" href="https://fonts.bunny.net">

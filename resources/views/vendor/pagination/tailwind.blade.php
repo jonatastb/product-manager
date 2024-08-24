@@ -1,8 +1,8 @@
 @if ($paginator->hasPages())
-    <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}" class="flex  items-center justify-between mt-8">
+    <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}" class="flex  items-center justify-center mt-8">
         
-        <div class="flex flex-col sm:flex-1 sm:flex-col sm:flex sm:items-center sm:justify-center">
-            <div class="mb-2">
+        <div class="flex flex-col sm:flex-1 sm:flex-col sm:flex items-center justify-center">
+            <div class="mb-2 m-auto">
                 <span class="relative z-0 inline-flex rtl:flex-row-reverse shadow-sm rounded-md">
                     {{-- Previous Page Link --}}
                     @if ($paginator->onFirstPage())

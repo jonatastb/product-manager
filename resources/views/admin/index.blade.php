@@ -1,5 +1,8 @@
 <x-app-layout>
     <div class="py-12 mx-2">
+        <h1 class="text-center my-3 text-2xl">
+            Todos os Produtos
+        </h1>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @if (session('success'))
                 <div class="bg-green-800 text-white px-4 py-2 rounded mb-4">

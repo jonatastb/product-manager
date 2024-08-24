@@ -1,5 +1,8 @@
 <x-app-layout>
     <div class="py-12 mx-2">
+        <h1 class="text-center my-3 text-2xl">
+            Usuários
+        </h1>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white lg:overflow-hidden overflow-y-scroll shadow-sm sm:rounded-lg ">
                 <table class="table-auto min-w-full">
